@@ -4,13 +4,20 @@ var getNewBankAccount = require('../bank-account');
 describe('Bank account', function () {
     it('should be able to deposit money on bank account', function () {
         var BankAccount = getNewBankAccount();
-        // BankAccount.deposit
+        BankAccount.deposit(100);
         assert.equal(BankAccount.balance, 100);
     });
 
     it('should be able to widthaw money from bank account', function () {
         var BankAccount = getNewBankAccount();
-        // BankAccount.widthraw
+        //BankAccount.deposit(100);
+        //BankAccount.widthraw(50);
+
+
+        
+        BankAccount.widthraw.apply({ balance: 100 }, [50]);
+        //BankAccount.widthraw(50);
+
         assert.equal(BankAccount.balance, 50);
     });
 
