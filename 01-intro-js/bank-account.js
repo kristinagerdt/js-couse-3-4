@@ -1,5 +1,4 @@
-// function getNewBankAccount(creditLimit) {
-function getNewBankAccount() {
+function getNewBankAccount(creditLimit) {
     return {
         balance: 0,
         deposit: function (amount) {
@@ -7,37 +6,17 @@ function getNewBankAccount() {
         },
 
         widthraw: function (money) {
-            this.balance = this.balance - money;
+            if (!creditLimit) {
+                creditLimit = 0;
+            }
+            if ((this.balance - money) >= creditLimit) {
+                this.balance = this.balance - money;
+            }
+            if (creditLimit > 0 && Math.abs((this.balance - money) <= creditLimit)) {
+                this.balance = this.balance - money;
+            }
         }
     }
 }
 
 module.exports = getNewBankAccount;
-
-
-function sum(n) {
-    var v = function (x) {
-        return sum(n + x);
-    };
-
-    v.valueOf = v.toString = function () {
-        return n;
-    };
-
-    return v;
-}
-
-var add = function (a) {
-    var sum = a;
-
-    var inner = function (b) {
-        sum += b;
-        return inner;
-    };
-
-    inner.valueOf = function () {
-        return sum;
-    };
-
-    return inner;
-};
