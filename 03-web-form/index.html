@@ -1,0 +1,43 @@
+<html>
+
+<head>
+    <title>Login form</title>
+</head>
+
+<body>
+    <form>
+        <p>Name:</p>
+        <p><input id="firstName" class="form-firstName" type="text" name="firstName"></p>
+        <p>Email:</p>
+        <p><input id="email" class="form-email" type="text" name="email"></p>
+        <p><button type="button" name="button">Submit</button></p>
+    </form>
+    <script>
+        var btn = document.querySelector('button');
+        var firstName = document.querySelector('#firstName');
+        var email = document.querySelector('#email');
+        btn.addEventListener('click', function () {
+            var at = email.value.indexOf('@');
+            if (firstName.value.length == 0 || email.value.length == 0) {
+                alert('Not all fields are filled!');
+                return false;
+            }
+            if (firstName.value.length < 4) {
+                alert('Name is less than 4 letters!');
+                return false;
+            }
+            if (email.value.length < 3) {
+                alert('Email is less than 3 letters!');
+                return false;
+            }
+            if (!~at) {
+                alert('Email is wrong, problem with \'@\'');
+                return false;
+            }
+            alert('Hello! ' + firstName.value + ' ' + email.value);
+            return true;
+        });
+    </script>
+</body>
+
+</html>
