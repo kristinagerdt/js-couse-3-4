@@ -1,0 +1,25 @@
+.jack-image{
+    margin: 20px;
+    width: 100%;
+}
+
+.jack-description-text{
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+.jack-subscribe-message{
+    width: 70%;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.jack-subscribe-email{
+    width: 50%;
+    float: right;
+}
+
+h3{
+    margin-left: -2px;
+    margin-bottom: 20px;
+}

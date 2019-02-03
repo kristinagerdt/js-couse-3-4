@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="jack-header">
+            <div class="row">
+                <div class="col-3">
+                    <img id="jack-image" alt="Jack Skellington" class="img-fluid jack-image">
+                </div>
+                <div class="col-9">
+                    <div class="jack-description-text">
+                        <h3 id="jack-greeting"></h3>
+                        <dl class="row">
+                            <dt class="col-sm-3">Name</dt>
+                            <dd class="col-sm-9">Jack Skellington</dd>
+
+                            <dt class="col-sm-3">Age</dt>
+                            <dd class="col-sm-9">Unknown</dd>
+
+                            <dt class="col-sm-3">Interests</dt>
+                            <dd class="col-sm-9">
+                                <p>He is the most important of many Halloween spirits, with the implication that their
+                                    job is to scare people in the real world on Halloween night.</p>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="jack-subscribe">
+            <div class="row">
+                <div class="col-8">
+                    <div class="form-group jack-subscribe-message">
+                        <label for="exampleFormControlTextarea1">Your message</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="input-group mb-3 jack-subscribe-email">
+                                <input type="text" class="form-control" placeholder="Input your email" aria-label="Input your email"
+                                    aria-describedby="basic-addon2">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <button type="button" class="btn btn-outline-secondary">Subscribe me!</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div style="width:100%;height:0;padding-bottom:63%;position:relative;">
+                        <iframe src="https://giphy.com/embed/pZxKXonUT3fzO" width="100%" height="100%" style="position:absolute"
+                            frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./app.js"></script>
+</body>
+
+</html>
