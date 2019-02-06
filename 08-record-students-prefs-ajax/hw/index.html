@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <form name="tForm" class="form-space">
+                    <div class="input-name">
+                        <div class="input-group input-group-sm mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">Name</span>
+                            </div>
+                            <input id="userName" type="text" class="form-control" aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-sm">
+                        </div>
+                    </div>
+                    <div class="select-interesses">
+                        <p>Select your interesses:</p>
+                        <select id="technologies" class="custom-select" multiple>
+                            <option value="1">Java</option>
+                            <option value="2">JS</option>
+                            <option value="3">C#</option>
+                            <option value="4">C++</option>
+                        </select>
+                    </div>
+                    <div class="btn-send">
+                        <button id="send" type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-6">
+                <div class="students-list">
+                    <h4>All students:</h4>
+                    <ol></ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function createElement(data) {
+            var myList = document.querySelector('ol');
+            for (var key in data) {
+                var listItem = document.createElement('li');
+                var value = data[key];
+
+                var technologiesStr = '';
+                for (var i = 0; i < value.technologies.length; i++) {
+                    technologiesStr = technologiesStr + ' ' + value.technologies[i];
+                }
+
+                listItem.innerHTML = '<strong>' + value.name + '</strong>' + ' ' + technologiesStr;
+                myList.appendChild(listItem);
+            }
+        }
+
+        function createObject() {
+            var userName = document.querySelector('#userName').value;
+            var technologies = document.querySelector('#technologies');
+            var selectTechnologies = new Array();
+
+            var index = 0;
+            for (var i = 0; i < technologies.length; i++) {
+                if (technologies.options[i].selected == true) {
+                    selectTechnologies[index] = technologies.options[i].text;
+                    index++;
+                }
+            }
+
+            var pref = {
+                name: userName,
+                technologies: selectTechnologies
+            }
+            return pref;
+        }
+
+        var btnSend = document.querySelector('#send');
+        btnSend.addEventListener('click', function (e) {
+            var pref = createObject();
+            fetch('http://localhost:3000/preferences', {
+                method: 'post',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(pref),
+                mode: 'cors'
+            }).then(function (response) {
+                console.log('Response:', response);
+            }).catch(function (error) {
+                console.error('Error', response);
+            });
+        });
+
+        +function () {
+            fetch('http://localhost:3000/preferences', {
+                method: 'get',
+            }).then((response) => {
+                return response.json();
+            }).then((data) => {
+                createElement(data);
+            }).catch(function (error) {
+                console.error('Error', response);
+            });
+        }()
+    </script>
+</body>
+
+</html>

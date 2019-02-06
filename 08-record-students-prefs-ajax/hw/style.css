@@ -1,0 +1,15 @@
+.form-space{
+    margin: auto;
+    margin-top: 40px;
+    width: 80%;
+}
+
+.btn-send{
+    margin-top: 20px;
+    float: right;
+}
+
+h4{
+    margin-top: 30px;
+    padding-left: 4.5%;
+}
