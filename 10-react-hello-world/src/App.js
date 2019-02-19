@@ -3,6 +3,7 @@ import mainImage from './party.jpeg';
 import './App.css';
 import Genossen from './Genossen';
 import Framework from './Framework';
+import Calculator from './Calculator';
 
 class App extends Component {
   render() {
@@ -10,8 +11,9 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <Genossen genossenGreeting="Hallo Genossen!" genossenSlogan="Lasst uns wieder Kommunismus aufbauen!" />
+          <Calculator x={2} y={3} />
           <img src={mainImage} className="App-main-image" alt="Communism it's a party" />
-          <Framework frameworkName="React" frameworkHref="https://reactjs.org" />
+          <Framework frameworkName="React" frameworkHref="https://reactjs.org" /> 
         </header>
       </div>
     );
